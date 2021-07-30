@@ -6,6 +6,7 @@ const dotenv = require('dotenv').config();
 const log4js = require('log4js');
 const mongoose = require('mongoose');
 const path = require('path');
+
 const publicFiles = path.join(__dirname, 'uploads');
 const publicFileEmail = path.join(__dirname, 'api', 'template', 'email', 'img');
 const cors = require('cors');
@@ -147,8 +148,8 @@ app.use('/mediaEmail', express.static(publicFileEmail));
 const port = process.env.port || process.env.PORT || 9000;
 app.set('PORT', port);
 app.set('view engine', 'ejs');
-//  TEMPLATE ROUTER
-app.get('/', (req, res) =>  res.render('index'));
+// TEMPLATE ROUTER
+app.get('/', (req, res) => res.render('index'));
 // INIZIALIZE SERVER
 // app.listen(app.get('PORT'), 'localhost');
 app.listen(app.get('PORT'), () => console.log(lang.LABEL_SERVER, app.get('PORT')));
